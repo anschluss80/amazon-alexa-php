@@ -1,12 +1,25 @@
+# New Library available
+Please note that this library is just kept as a historical reference.
+
+Please head over to:
+* [LibVoice](https://github.com/internetofvoice/libvoice), the successor to this library
+* [VSMS-Core](https://github.com/internetofvoice/vsms-core), the VSMS framework or
+* [VSMS-Skeleton](https://github.com/internetofvoice/vsms-skeleton), the VSMS application skeleton.
+
+VSMS is short for "Voice Skill Management System" and uses LibVoice to provide a development
+framework for voice assistant interactions (skills).
+
+---
+
 # Amazon Alexa PHP Library
 
-> A PHP library for developing Amazon Alexa skills. 
+> A PHP library for developing Amazon Alexa skills.
 
 This is an extension of the amazon-alexa-php library by [minicodemonkey](https://github.com/MiniCodeMonkey),
 [jakubsuchy](https://github.com/jakubsuchy) and [danstreeter](https://github.com/danstreeter).
 
 ## Usage
-Require the library in your composer.json: 
+Require the library in your composer.json:
 ```php
 {
     "require": {
@@ -43,8 +56,8 @@ if ($alexaRequest instanceof \Alexa\Request\IntentRequest) {
 ```
 
 ### Certificate validation
-By default the system validates the request signature by fetching Amazon's signing certificate and decrypting the 
-signature. You need CURL to be able to get the certificate. No caching is done but you can override the Certificate 
+By default the system validates the request signature by fetching Amazon's signing certificate and decrypting the
+signature. You need CURL to be able to get the certificate. No caching is done but you can override the Certificate
 class easily if you want to implement certificate caching yourself based on what your app provides:
 
 Here is a basic example:
@@ -74,10 +87,10 @@ $alexaRequest = $alexa->fromData();
 ```
 
 ### Application Id validation
-The library will automatically validate your Application Id matches the one of the incoming request - you don't need 
-to do anything for that. If and only if you wish to change how the validation happens, you might use a similar 
-scenario to the certificate validation - provide your own Application class extending the \Alexa\Request\Application 
-and providing a validateApplicationId() function as part of that. Pass your application to the Request library in a 
+The library will automatically validate your Application Id matches the one of the incoming request - you don't need
+to do anything for that. If and only if you wish to change how the validation happens, you might use a similar
+scenario to the certificate validation - provide your own Application class extending the \Alexa\Request\Application
+and providing a validateApplicationId() function as part of that. Pass your application to the Request library in a
 same way as the certificate:
 ```php
 $application = new MyAppApplication($myappId);
